@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- NetBeans Ant build script for InvestmentMS -->
+<project name="InvestmentMS" default="default" basedir=".">
+    <description>Build script for InvestmentMS Web Application</description>
+
+    <import file="${netbeans.home}/../java2/ant/ant-deploy.xml" optional="true"/>
+
+    <target name="-pre-init" depends="-check-properties"/>
+    <target name="-check-properties">
+        <property file="nbproject/project.properties"/>
+    </target>
+
+    <target name="default" depends="jar,javadoc"/>
+
+    <target name="clean" description="Clean build artifacts">
+        <delete dir="${build.dir}"/>
+        <delete dir="${dist.dir}"/>
+    </target>
+
+    <target name="compile" depends="clean" description="Compile Java sources">
+        <mkdir dir="${build.classes.dir}"/>
+        <javac srcdir="${src.dir}"
+               destdir="${build.classes.dir}"
+               classpath="${javac.classpath}"
+               includeantruntime="false"
+               source="${javac.source}"
+               target="${javac.target}"
+               encoding="${source.encoding}"
+               debug="true"/>
+    </target>
+
+    <target name="jar" depends="compile" description="Build WAR file">
+        <mkdir dir="${dist.dir}"/>
+        <war destfile="${dist.jar}" webxml="${webinf.dir}/web.xml">
+            <fileset dir="${web.docbase.dir}"/>
+            <classes dir="${build.classes.dir}"/>
+        </war>
+    </target>
+
+    <target name="javadoc" description="Generate Javadoc">
+        <mkdir dir="${dist.javadoc.dir}"/>
+        <javadoc destdir="${dist.javadoc.dir}"
+                 author="true" version="true" use="true"
+                 windowtitle="InvestMS API Documentation"
+                 sourcepath="${src.dir}"
+                 classpath="${javac.classpath}">
+            <packageset dir="${src.dir}" defaultexcludes="yes">
+                <include name="com/investms/**"/>
+            </packageset>
+        </javadoc>
+    </target>
+
+</project>

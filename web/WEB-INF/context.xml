@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Tomcat Context Descriptor for InvestmentMS
+    Optional: can also configure JNDI DataSource here for connection pooling
+-->
+<Context path="/InvestmentMS" reloadable="true">
+
+    <!--
+    OPTIONAL: Uncomment for JNDI connection pooling (recommended for production)
+
+    <Resource name="jdbc/investms"
+              auth="Container"
+              type="javax.sql.DataSource"
+              maxTotal="20"
+              maxIdle="10"
+              maxWaitMillis="10000"
+              username="root"
+              password=""
+              driverClassName="com.mysql.cj.jdbc.Driver"
+              url="jdbc:mysql://localhost:3306/investment_ms?useSSL=false&amp;serverTimezone=UTC"/>
+    -->
+
+</Context>

@@ -1,0 +1,34 @@
+# NetBeans build output
+build/
+dist/
+nbproject/private/
+
+# NetBeans cache
+.nb-gradle/
+
+# Compiled Java classes
+*.class
+
+# WAR files (generated)
+*.war
+*.jar
+!web/WEB-INF/lib/*.jar
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE files
+*.iml
+.idea/
+*.orig
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.swp
+*~
